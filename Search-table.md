@@ -51,16 +51,28 @@
 | 广汉机场 | GHN | ZUGH |
 | 格尔木机场 | GOQ | ZLGM |
 | 广元盘龙机场 | GYS | ZUGU |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-|  |  |  |
-
-
+| 海口美兰国际机场 | HAK | ZJHK |
+| 邯郸机场 | HDG | ZBHD |
+| 黑河机场 | HEK | ZYHE |
+| 呼和浩特白塔国际机场 | HET | ZBHH |
+| 合肥新桥国际机场 | HFE | ZSOF |
+| 杭州萧山国际机场 | HGH | ZSHC |
+| 淮安涟水国际机场 | HIA | ZSSH |
+| 怀化芷江机场 | HJJ | ZGCJ |
+| 塔什库尔干红其拉甫机场 | HQL | ZWTK |
+| 香港国际机场 | HKG | VHHH |
+| 呼伦贝尔东山国际机场 | HLD | ZBLA |
+| 乌兰浩特义勒力特机场 | HLH | ZBUL |
+| 哈密机场 | HMI | ZWHM |
+| 衡阳南岳机场 | HNY | ZGHY |
+| 哈尔滨太平国际机场 | HRB | ZYHB |
+| 舟山普陀山机场 | HSN | ZSZS |
+| 和田机场 | HTN | ZWTN |
+| 海西花土沟机场 | HTT | ZLHX |
+| 惠州平潭机场 | HUZ | ZGHZ |
+| 台州路桥机场 | HYN | ZSLQ |
+| 菏泽牡丹机场 | HZA | ZSHZ |
+| 汉中城固机场 | HZG | ZLHZ |
+| 银川河东国际机场 | INC | ZLIC |
+| 且末玉都机场 | IQM | ZWCM |
+| 庆阳西峰机场 | IQN | ZLQY |
