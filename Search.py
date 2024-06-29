@@ -1,0 +1,91 @@
+import re
+import sys
+import os
+
+from colorama import init, Fore
+
+init(autoreset=True)
+
+os.chdir(os.path.dirname(os.path.abspath(sys.argv[0])))
+try:
+    os.sys("git pull")
+except:
+    pass
+# 自动拉取更新
+
+def search_table(query_type, query, md_table):
+    # 将Markdown表格转换为二维列表
+    table = [re.split(r'\s*\|\s*', row.strip()) for row in md_table.split('\n') if row.strip()]
+    headers = table[0]
+    # 确定要搜索的列
+    if query_type.lower() == 'air':
+        search_col = 1
+    elif query_type.lower() == 'iata':
+        search_col = 2
+    elif query_type.lower() == 'icao':
+        search_col = 3
+    else:
+        return None
+
+    # 进行搜索
+    result = []
+    for row in table[2:]:
+        if search_col == 1:
+            try:
+                if int(row[search_col]) == int(query):
+                    result.append(row)
+            except ValueError:
+                pass
+        elif row[search_col].lower() == query.lower():
+            result.append(row)
+
+    # 格式化输出结果
+    if result:
+        output = []
+        for row in result:
+            output.append(f'机场:{Fore.BLUE}{row[1]}{Fore.RESET} IATA:{Fore.BLUE}{row[2]}{Fore.RESET} ICAO:{Fore.BLUE}{row[3]}{Fore.RESET}')
+        return '\n'.join(output)
+    else:
+        return f"{Fore.BLUE}[!]{Fore.RESET} 未找到有关{query}的信息。"
+
+
+# 从文件中读取Markdown表格
+def read_md_table(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        md_table = f.read()
+    return md_table
+
+
+# 确认输入是否有效
+def is_valid_query_type(query_type):
+    return query_type.lower() in ['air', '机场', 'iata', 'icao']
+
+
+# ---定义函数 ↑ | ↓ 主程序---
+
+
+# 用户输入搜索对象并进行验证
+while True:
+    query_type = input('请输入搜索对象（机场、IATA、ICAO）：')
+    if is_valid_query_type(query_type):
+        break
+    else:
+        print(f"{Fore.RED}✕{Fore.RESET} 无效的搜索对象，请重新输入。")
+
+# 用户输入搜索内容
+query = input('请输入搜索内容：')
+
+# 读取Markdown表格
+file_path = 'Search-table.md'
+md_table = read_md_table(file_path)
+
+# 进行搜索并输出结果
+result = search_table(query_type, query, md_table)
+if result:
+    print(f"{Fore.GREEN}✓{Fore.RESET} 找到以下结果:")
+    print(result)
+else:
+    print(f'{Fore.RED}✕{Fore.RESET} 未找到有关{query}的信息。')
+
+# 等待用户结束程序
+input("按Enter键退出程序...")
